@@ -11,7 +11,7 @@ proposed by Allan Kay:
 5. The class holds the shared behavior for its instances (in the form of objects in a program list)
 6. To eval a program list, control is passed to the first object and the remainder is treated as its message.
 
-I decided to create a quick prototype of an api based on event/messages communication system between components(classes) trying to follow all the rules/principel originally explained by Alan Kay with modern javascript/typescript
+I decided to create a quick prototype of an api based on a event/messages communication system between components(classes) trying to follow all the rules/principles originally explained by Alan Kay with modern javascript/typescript
 
 The last two principles are kind of difficult to accomplish with javascript/typescript due to the fact that are native
 features of languages as SmallTalk
