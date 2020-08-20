@@ -43,5 +43,5 @@ based on messages and events(Each class should be totally independent and be com
 ![image1](/images/image1.jpg "OOP")
 
 
-###Model inspired by the OOP concept proposed by Alan Kay
+###Model inspired by the OOP concept proposed by Alan Kay (Broker it's optional)
 ![image1](/images/image2.jpg "REALOOP")
