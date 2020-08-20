@@ -35,7 +35,11 @@ For example, in this case the controller class emits a message received from a P
 The service class will be able to pick up that message(specifically directed to that service) from the GlobalMessagingPool and
 compute, maintain the state or persist the data passed via the message.
 
-All the messages are passed to a GlobalMessagingPool
+All the messages are passed to a GlobalMessagingPool wich provides with a kind of 'global state' the application. all the Business logic should be encapsulated in each class.
+
+It's really important to emphasize early planning of the Message Schema that will be consumed and provided between classes, each message should have the posibility to be changable, persist the previous data and insert new data in each message(deep copy). 
+
+This code is also highly Testable beacuse there's no depedency at all between classes.
 
 As I said, this is a prototype, probably with a lot of mistakes, not even close to production, however, is following the principle of total isolation
 based on messages and events(Each class should be totally independent and be completely anonymous to the other classes, as a single processing unit).
