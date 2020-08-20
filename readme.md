@@ -1,7 +1,7 @@
 #Object Oriented Messaging
 
 
-Following the original patterns Object Oriented Programming
+Following the original pattern of Object Oriented Programming
 proposed by Allan Kay:
 
 1. EverythingIsAnObject.
