@@ -53,4 +53,4 @@ based on messages and events(Each class should be totally independent and be com
 
 
 ###Model inspired by the OOP concept proposed by Alan Kay (Broker it's optional)
-![image1](/images/newpatern.pg "REALOOP")
+![image1](/images/newpatern.jpg "REALOOP")
