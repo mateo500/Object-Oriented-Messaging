@@ -39,6 +39,7 @@ All the messages are passed to a GlobalMessagingPool wich provides with a kind o
 
 #wikipedia Extract: 
 The state an object holds is always private to that object. Other objects can query or change that state only by sending requests (messages) to the object to do so. Any message can be sent to any object: when a message is received, the receiver determines whether that message is appropriate. Alan Kay has commented that despite the attention given to objects, messaging is the most important concept in Smalltalk: "The big idea is 'messaging'—that is what the kernel of Smalltalk/Squeak is all about (and it's something that was never quite completed in our Xerox PARC phase).
+[wikipedia](https://en.wikipedia.org/wiki/Smalltalk)
 
 It's really important to emphasize early planning of the Message Schema that will be consumed and provided between classes, each message should have the posibility to be changable, persist the previous data and insert new data in each message(deep copy). 
 
