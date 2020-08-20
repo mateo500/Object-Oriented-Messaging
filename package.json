@@ -1,0 +1,29 @@
+{
+  "name": "real-oop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.7",
+    "@types/uuid": "^8.3.0",
+    "express": "^4.17.1",
+    "moment": "^2.27.0",
+    "uuid": "^8.3.0"
+  }
+}
