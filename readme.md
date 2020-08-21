@@ -1,7 +1,7 @@
 #Object Oriented Messaging
 
 Following the original pattern of Object Oriented Programming
-proposed by Allan Kay:
+proposed by Alan Kay:
 
 1. EverythingIsAnObject.
 2. Objects communicate by sending and receiving messages (in terms of objects).
