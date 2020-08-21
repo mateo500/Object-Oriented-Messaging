@@ -54,5 +54,5 @@ based on messages and events(Each class should be totally independent and be com
 ###Model inspired by the OOP concept proposed by Alan Kay (Broker it's optional)
 ![image2](/images/newpatern.jpg "REALOOP")
 
-##Example of a POST request sent to the server with the response of that task(conext)
+##Example of a POST request sent to the server with the response of that task(context)
 ![image3](/images/request.png "example")
