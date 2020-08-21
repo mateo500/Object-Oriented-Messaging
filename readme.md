@@ -26,14 +26,14 @@ In a big production environment, this creates a snowball effect, the bigger your
 classes and interfaces, so, when the time comes to change a feature in a highly used and implemented 
 interface, a lot of changes have to be made in the classes that implement that interface.
 
-##Example explanation
+##Example explanation:  
 For this case, I created an API prototype with node.js/express/typescript
 as you can see, in the Controller Class and Service Class, there's totally decoupling between them but,
 the classes still able to communicate and transfer data via messages.
 
 For example, in this case the controller class emits a message received from a POST request sent to the server, the message also emits an event.
 The service class will be able to pick up that message(specifically directed to that service) from the GlobalMessagingPool and
-compute, maintain the state or persist the data passed via the message.
+compute, maintain the state or persist the data passed via the message, at the end of the process, the server will be able to send a response related to that operation, without knowing the existen of that result producer(class).
 
 All the messages are passed to a GlobalMessagingPool wich provides with a kind of 'global state' the application. all the Business logic should be encapsulated in each class.
 
