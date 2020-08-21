@@ -33,7 +33,7 @@ the classes still able to communicate and transfer data via messages.
 
 For example, in this case the controller class emits a message received from a POST request sent to the server, the message also emits an event.
 The service class will be able to pick up that message(specifically directed to that service) from the GlobalMessagingPool and
-compute, maintain the state or persist the data passed via the message, at the end of the process, the server will be able to send a response related to that operation, without knowing the existen of that result producer(class).
+compute, maintain the state or persist the data passed via the message, at the end of the process, the server will be able to send a response related to that operation to the client, without knowing the existen of that result producer(class).
 
 All the messages are passed to a GlobalMessagingPool wich provides with a kind of 'global state' the application. all the Business logic should be encapsulated in each class.
 
