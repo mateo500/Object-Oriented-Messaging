@@ -1,6 +1,5 @@
 #Object Oriented Messaging
 
-
 Following the original pattern of Object Oriented Programming
 proposed by Allan Kay:
 
@@ -18,12 +17,13 @@ features of languages as SmallTalk
 
 To make this example, I took a lot of ideas from the Channels feature in C#
 
--------
+---
+
 #####This style of programming basically solve a big Issue with the actual OOP:
 ####highly coupled, related and extended/implemented classes and interfaces
 
 In a big production environment, this creates a snowball effect, the bigger your project/app, the bigger the relation between
-classes and interfaces, so, when the time comes to change a feature in a highly used and implemented 
+classes and interfaces, so, when the time comes to change a feature in a highly used and implemented
 interface, a lot of changes have to be made in the classes that implement that interface.
 
 ##Example explanation:  
@@ -37,11 +37,11 @@ compute, maintain the state or persist the data passed via the message, at the e
 
 All the messages are passed to a GlobalMessagingPool wich provides with a kind of 'global state' the application. all the Business logic should be encapsulated in each class.
 
-#wikipedia Extract: 
+#wikipedia Extract:
 The state an object holds is always private to that object. Other objects can query or change that state only by sending requests (messages) to the object to do so. Any message can be sent to any object: when a message is received, the receiver determines whether that message is appropriate. Alan Kay has commented that despite the attention given to objects, messaging is the most important concept in Smalltalk: "The big idea is 'messaging'—that is what the kernel of Smalltalk/Squeak is all about (and it's something that was never quite completed in our Xerox PARC phase).
 [wikipedia](https://en.wikipedia.org/wiki/Smalltalk)
 
-It's really important to emphasize early planning of the Message Schema that will be consumed and provided between classes, each message should have the posibility to be changable, persist the previous data and insert new data in each message(deep copy). 
+It's really important to emphasize early planning of the Message Schema that will be consumed and provided between classes, each message should have the posibility to be changable, persist the previous data and insert new data in each message(deep copy).
 
 This code is also highly Testable beacuse there's no depedency at all between classes.
 
@@ -51,6 +51,8 @@ based on messages and events(Each class should be totally independent and be com
 ###Original OOP Model, Highly related classes and interfaces
 ![image1](/images/image1.jpg "OOP")
 
-
 ###Model inspired by the OOP concept proposed by Alan Kay (Broker it's optional)
-![image1](/images/newpatern.jpg "REALOOP")
+![image2](/images/newpatern.jpg "REALOOP")
+
+##Example of a POST request sent to the service with the response of that task(conext)
+![image3](/images/request.png "example")
