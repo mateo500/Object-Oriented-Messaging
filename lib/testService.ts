@@ -2,7 +2,7 @@ import GlobalMessagingPool from "./GlobalMessagingPool";
 import GlobalEmitter from "./GlobalEmiter";
 
 export class TestService {
-  public messages: any;
+  private messages: any;
 
   constructor() {
     this.messages = GlobalMessagingPool.getPool();

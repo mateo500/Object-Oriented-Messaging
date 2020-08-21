@@ -1,7 +1,6 @@
 import { Request, Response, Router, IRouter } from "express";
 import GlobalMessagingPool from "./GlobalMessagingPool";
 import GlobalEmiter from "./GlobalEmiter";
-import { bodyParser } from "./app";
 
 export interface IUserControllerBase {
   router: IRouter;

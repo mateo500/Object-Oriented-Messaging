@@ -1,7 +1,7 @@
-import App, { bodyParser } from './app';
-import { IAppConfig } from './app.interface';
-import { Controller } from './controller';
-import { TestService } from './testService';
+import App, { bodyParser } from "./app";
+import { IAppConfig } from "./app.interface";
+import { Controller } from "./testController";
+import { TestService } from "./testService";
 
 //app config
 const appConfig: IAppConfig = {

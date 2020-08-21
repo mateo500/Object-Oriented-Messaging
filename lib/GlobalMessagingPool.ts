@@ -7,9 +7,8 @@ interface IGlobalMessagingPool {
   removeMessageFromPool(index: string): any;
   getPoolSize(): number;
   getPool(): void;
-  poolActive: boolean;
-  size: number;
   getLoggedMessages(): any[];
+  isPoolActive(): boolean;
 }
 
 interface IMessage {
@@ -30,11 +29,11 @@ interface IOperationData {
 }
 
 export class GlobalMessagingPool implements IGlobalMessagingPool {
-  public poolActive: boolean = false;
+  private poolActive: boolean = false;
 
   private pool: any = {};
 
-  public size: number;
+  private size: number;
 
   private logger: any[] = [];
 
@@ -89,12 +88,16 @@ export class GlobalMessagingPool implements IGlobalMessagingPool {
     return this.size;
   }
 
-  getPool() {
+  getPool(): any {
     return this.pool;
   }
 
   getLoggedMessages(): any[] {
     return this.logger;
+  }
+
+  isPoolActive(): boolean {
+    return this.poolActive;
   }
 }
 
