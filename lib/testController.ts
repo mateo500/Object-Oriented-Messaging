@@ -12,15 +12,15 @@ enum paths {
   login = "/login",
 }
 
-let registerResponse: string;
-const receiveMessage = (args: any) => {
+let registerResponse: object;
+const receiveMessage = (args: string) => {
   registerResponse = GlobalMessagingPool.getPool()[args];
 };
 
 GlobalEmiter.on("USER_REGISTER_RESPONSE", receiveMessage);
 
-let loginResponse: string;
-const receiveMessageLogin = (args: any) => {
+let loginResponse: object;
+const receiveMessageLogin = (args: string) => {
   loginResponse = GlobalMessagingPool.getPool()[args];
 };
 
@@ -39,7 +39,7 @@ export class Controller implements IUserControllerBase {
     this.router.post(paths.login, this.loginUser);
   }
 
-  private registerUser(req: Request, res: Response): any {
+  private registerUser(req: Request, res: Response) {
     if (req.body.context !== "USER_REGISTER") {
       return res.send("wrong route");
     } else {

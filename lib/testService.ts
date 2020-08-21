@@ -14,7 +14,7 @@ export class TestService {
     });
   }
 
-  registerUser(args: any) {
+  registerUser(args: string) {
     GlobalMessagingPool.insertMessageInPool("USER_REGISTER_RESPONSE", {
       payload: `user  registered: ${JSON.stringify(
         this.messages[args][1].payload
@@ -24,7 +24,7 @@ export class TestService {
     });
   }
 
-  loginUser(args: any) {
+  loginUser(args: string) {
     GlobalMessagingPool.insertMessageInPool("USER_LOGIN_RESPONSE", {
       payload: `user  logged in: ${JSON.stringify(
         this.messages[args][1].payload
