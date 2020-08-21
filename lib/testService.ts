@@ -7,14 +7,14 @@ export class TestService {
   constructor() {
     this.messages = GlobalMessagingPool.getPool();
     GlobalEmitter.on("USER_REGISTER", (args) => {
-      this.logMessagePayload(args);
+      this.registerUser(args);
     });
     GlobalEmitter.on("USER_LOGIN", (args) => {
-      this.logUser(args);
+      this.loginUser(args);
     });
   }
 
-  logMessagePayload(args: any) {
+  registerUser(args: any) {
     GlobalMessagingPool.insertMessageInPool("USER_REGISTER_RESPONSE", {
       payload: `user  registered: ${JSON.stringify(
         this.messages[args][1].payload
@@ -24,7 +24,7 @@ export class TestService {
     });
   }
 
-  logUser(args: any) {
+  loginUser(args: any) {
     GlobalMessagingPool.insertMessageInPool("USER_LOGIN_RESPONSE", {
       payload: `user  logged in: ${JSON.stringify(
         this.messages[args][1].payload
