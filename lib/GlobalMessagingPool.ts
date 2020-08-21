@@ -1,6 +1,6 @@
-import { v4 as uuidGenerator } from 'uuid';
-import GlobalEmitter from './GlobalEmiter';
-import moment from 'moment';
+import { v4 as uuidGenerator } from "uuid";
+import GlobalEmitter from "./GlobalEmiter";
+import moment from "moment";
 
 interface IGlobalMessagingPool {
   insertMessageInPool(context: string, message: IMessage): void;
@@ -26,6 +26,7 @@ interface IOperationData {
   To: string;
   IndexInPool?: string;
   timeStamp: string;
+  payload: string | object;
 }
 
 export class GlobalMessagingPool implements IGlobalMessagingPool {
@@ -40,7 +41,7 @@ export class GlobalMessagingPool implements IGlobalMessagingPool {
   constructor() {
     this.poolActive = true;
     this.size = 0;
-    console.log('Pool initiated');
+    console.log("Pool initiated");
   }
 
   insertMessageInPool(context: string, message: IMessage) {
@@ -55,14 +56,15 @@ export class GlobalMessagingPool implements IGlobalMessagingPool {
     ] = newMessage;
     GlobalEmitter.emit(context, newMessage[1].indexInPool);
     const operationData: IOperationData = {
-      Operation: 'Message Added To Pool',
+      Operation: "Message Added To Pool",
       MessageContext: newMessage[0],
       From: newMessage[1].from,
       To: newMessage[1].to,
       IndexInPool: newMessage[1].indexInPool,
-      timeStamp: moment().format('LLL'),
+      timeStamp: moment().format("LLL"),
+      payload: JSON.stringify(newMessage[1].payload),
     };
-    this.logger.push({ ...operationData, payload: newMessage[1].payload });
+    this.logger.push(operationData);
     console.table(operationData);
   }
 
@@ -71,14 +73,15 @@ export class GlobalMessagingPool implements IGlobalMessagingPool {
     delete this.pool[uuid];
     this.size--;
     const operationData: IOperationData = {
-      Operation: 'Message Removed From Pool',
+      Operation: "Message Removed From Pool",
       MessageContext: removed[0],
       From: removed[1].from,
       To: removed[1].to,
       IndexInPool: removed[1].indexInPool,
-      timeStamp: moment().format('LLL'),
+      timeStamp: moment().format("LLL"),
+      payload: JSON.stringify(removed[1].payload),
     };
-    this.logger.push({ ...operationData, payload: removed[1].payload });
+    this.logger.push(operationData);
     console.table(operationData);
   }
 
