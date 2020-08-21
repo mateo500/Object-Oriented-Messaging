@@ -1,13 +1,14 @@
 import { Request, Response, Router, IRouter } from "express";
 import GlobalMessagingPool from "./GlobalMessagingPool";
 import GlobalEmiter from "./GlobalEmiter";
+import { bodyParser } from "./app";
 
 export interface IUserControllerBase {
   router: IRouter;
 }
 
 enum paths {
-  testing = "/testing",
+  testing = "/register",
   logger = "/logger",
   login = "/login",
 }
@@ -21,7 +22,7 @@ GlobalEmiter.on("USER_REGISTER_RESPONSE", receiveMessage);
 
 let loginResponse: string;
 const receiveMessageLogin = (args: any) => {
-  registerResponse = GlobalMessagingPool.getPool()[args];
+  loginResponse = GlobalMessagingPool.getPool()[args];
 };
 
 GlobalEmiter.on("USER_LOGIN_RESPONSE", receiveMessageLogin);
@@ -40,23 +41,31 @@ export class Controller implements IUserControllerBase {
   }
 
   private registerUser(req: Request, res: Response): any {
-    GlobalMessagingPool.insertMessageInPool(req.body.context, {
-      payload: req.body.payload,
-      from: "controller.ts",
-      to: "testService.ts",
-    });
+    if (req.body.context !== "USER_REGISTER") {
+      return res.send("wrong route");
+    } else {
+      GlobalMessagingPool.insertMessageInPool(req.body.context, {
+        payload: req.body.payload,
+        from: "controller.ts",
+        to: "testService.ts",
+      });
 
-    res.send(registerResponse);
+      res.send(registerResponse);
+    }
   }
 
-  private loginUser(req: Request, res: Response): any {
-    GlobalMessagingPool.insertMessageInPool(req.body.context, {
-      payload: req.body.payload,
-      from: "controller.ts",
-      to: "testService.ts",
-    });
+  private loginUser(req: Request, res: Response) {
+    if (req.body.context !== "USER_LOGIN") {
+      return res.send("Wrong Route");
+    } else {
+      GlobalMessagingPool.insertMessageInPool(req.body.context, {
+        payload: req.body.payload,
+        from: "controller.ts",
+        to: "testService.ts",
+      });
 
-    res.send(loginResponse);
+      return res.send(loginResponse);
+    }
   }
 
   private getLogger(req: Request, res: Response): Response {
