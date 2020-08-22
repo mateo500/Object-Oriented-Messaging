@@ -1,13 +1,13 @@
 import App, { bodyParser } from "./app";
 import { IAppConfig } from "./app.interface";
-import { Controller } from "./testController";
+import { TestController } from "./testController";
 import { TestService } from "./testService";
 
 //app config
 const appConfig: IAppConfig = {
   port: 5000,
   _middlewares: [bodyParser()],
-  controllers: [Controller],
+  controllers: [TestController],
   services: [TestService],
 };
 

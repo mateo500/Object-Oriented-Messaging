@@ -26,7 +26,7 @@ const receiveMessageLogin = (args: string) => {
 
 GlobalEmiter.on("USER_LOGIN_RESPONSE", receiveMessageLogin);
 
-export class Controller implements IUserControllerBase {
+export class TestController implements IUserControllerBase {
   public router: IRouter = Router();
 
   constructor() {
