@@ -25,8 +25,8 @@ export default class App implements IApp {
   }
 
   private routes(controllers: any[]): void {
-    controllers.forEach((controller: { router: IRouter }) => {
-      this.app.use("/", controller.router);
+    controllers.forEach((controller: any) => {
+      this.app.use("/", new controller().router);
     });
   }
 

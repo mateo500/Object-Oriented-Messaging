@@ -7,7 +7,7 @@ import { TestService } from "./testService";
 const appConfig: IAppConfig = {
   port: 5000,
   _middlewares: [bodyParser()],
-  controllers: [new Controller()],
+  controllers: [Controller],
   services: [TestService],
 };
 
