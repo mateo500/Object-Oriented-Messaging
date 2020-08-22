@@ -8,8 +8,8 @@ const appConfig: IAppConfig = {
   port: 5000,
   _middlewares: [bodyParser()],
   controllers: [new Controller()],
+  services: [TestService],
 };
 
 //Run App
 new App(appConfig).listen();
-new TestService();

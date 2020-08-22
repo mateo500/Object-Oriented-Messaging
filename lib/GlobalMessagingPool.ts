@@ -78,7 +78,7 @@ export class GlobalMessagingPool implements IGlobalMessagingPool {
       To: removed[1].to,
       IndexInPool: removed[1].indexInPool,
       timeStamp: moment().format("LLL"),
-      payload: JSON.stringify(removed[1].payload),
+      payload: removed[1].payload,
     };
     this.logger.push(operationData);
     console.table(operationData);

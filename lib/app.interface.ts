@@ -1,13 +1,14 @@
-import { Application } from 'express';
+import { Application } from "express";
 
 export interface IApp {
-    app: Application;
-    port: number;
-    listen(): void;
+  app: Application;
+  port: number;
+  listen(): void;
 }
 
 export interface IAppConfig {
-    port: number;
-    _middlewares: any[];
-    controllers: any[];
+  port: number;
+  _middlewares: any[];
+  controllers: any[];
+  services: any[];
 }
