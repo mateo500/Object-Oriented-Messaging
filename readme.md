@@ -19,14 +19,13 @@ To make this example, I took a lot of ideas from the Channels feature in C#
 
 ---
 
-#####This style of programming basically solve a big Issue with the actual OOP:
-####highly coupled, related and extended/implemented classes and interfaces
+#This style of programming basically solve a big Issue with the actual OOP: highly coupled, related and extended/implemented classes and interfaces
 
 In a big production environment, this creates a snowball effect, the bigger your project/app, the bigger the relation between
 classes and interfaces, so, when the time comes to change a feature in a highly used and implemented
 interface, a lot of changes have to be made in the classes that implement that interface.
 
-##Example explanation:  
+#Example explanation:  
 For this case, I created an API prototype with node.js/express/typescript
 as you can see, in the Controller Class and Service Class, there's totally decoupling between them but,
 the classes still able to communicate and transfer data via messages.
